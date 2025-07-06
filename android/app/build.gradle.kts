@@ -1,20 +1,4 @@
 
-import java.io.FileInputStream
-import java.util.Properties
-
-val keystorePropsFile = rootProject.file("key.properties")
-val keystoreProps = Properties().apply {
-    if (keystorePropsFile.exists()) {
-        load(FileInputStream(keystorePropsFile))
-    } else error("Missing key.properties at ${keystorePropsFile.path}")
-}
-
-val storeFile: File? = file(keystoreProps.getProperty("storeFile"))
-val storePassword: String = keystoreProps.getProperty("storePassword")
-val keyAlias: String = keystoreProps.getProperty("keyAlias")
-val keyPassword: String = keystoreProps.getProperty("keyPassword")
-
-
 plugins {
     id("com.android.application")
     id("kotlin-android")
